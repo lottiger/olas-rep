@@ -15,7 +15,7 @@ const Page = () => {
 					smide och entreprenad.
 				</p>
 
-				<div className="bg-white/50 h-0.5 w-full my-10" />
+				<div className="bg-gray-400 h-0.5 w-full my-10" />
 
 				<div className="flex flex-col md:flex-row w-full max-w-2xl mx-auto justify-center font-serif gap-6 md:gap-10">
 					{/* Vänster (50%) */}
