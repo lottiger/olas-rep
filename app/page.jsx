@@ -1,4 +1,4 @@
-import { Clock, House, Mail, Phone } from 'lucide-react';
+import { Clock, House, Mail, Phone, Wrench } from 'lucide-react';
 import React from 'react';
 
 const Page = () => {
@@ -6,7 +6,7 @@ const Page = () => {
 		<div className="min-h-screen flex flex-col justify-center items-center px-4 mt-10">
 			<div className="w-full max-w-4xl mx-auto text-center">
 				<h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-4">
-					Olas rep & entreprenad
+					Olas rep & service
 				</h1>
 
 				<p className="mt-4 text-lg sm:text-xl md:text-2xl w-full max-w-3xl mx-auto font-serif">
@@ -30,13 +30,17 @@ const Page = () => {
 					{/* Höger (50%) */}
 					<div className="w-full md:w-1/2 flex flex-col gap-4 items-center md:items-start">
 						<div className="flex flex-col items-center md:flex-row md:items-center gap-2">
+							<Wrench className="w-6 h-6" />
+							<p> Verkstad: 070-220 18 53</p>
+						</div>
+						<div className="flex flex-col items-center md:flex-row md:items-center gap-2">
 							<Phone className="w-6 h-6" />
-							<p>070-220 18 53</p>
+							<p> Markservice: 070-322 97 10</p>
 						</div>
 
 						<div className="flex flex-col items-center md:flex-row md:items-center gap-2">
 							<Mail className="w-6 h-6" />
-							<p>olasrep@gmail.com</p>
+							<p> Epost: olas.rep@gmail.com</p>
 						</div>
 
 						<div className="flex flex-col items-center md:flex-row md:items-center gap-2 text-center md:text-left">
