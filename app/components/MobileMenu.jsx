@@ -24,36 +24,19 @@ const MobileMenu = () => {
 				<nav className="absolute top-full right-0 -mx-4 w-48 bg-white shadow-md md:hidden z-50">
 					<ul className="flex flex-col gap-4 p-4">
 						<li>
-							<a href="#verkstad" onClick={() => setOpen(false)}>
-								Verkstad
+							<a href="#services" onClick={() => setOpen(false)}>
+								Tjänster
 							</a>
 						</li>
+
 						<li>
-							<a
-								href="#markservice"
-								onClick={() => setOpen(false)}
-							>
-								Markservice
-							</a>
-						</li>
-						<li>
-							<a href="#hydraulik" onClick={() => setOpen(false)}>
-								Hydraulik
-							</a>
-						</li>
-						<li>
-							<a href="#smide" onClick={() => setOpen(false)}>
-								Smide
-							</a>
-						</li>
-						<li>
-							<a href="#kontakt" onClick={() => setOpen(false)}>
+							<a href="#contact" onClick={() => setOpen(false)}>
 								Kontakt
 							</a>
 						</li>
 						<li>
-							<a href="#om-oss" onClick={() => setOpen(false)}>
-								Om oss
+							<a href="#gallery" onClick={() => setOpen(false)}>
+								Galleri
 							</a>
 						</li>
 					</ul>

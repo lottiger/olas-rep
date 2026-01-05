@@ -3,6 +3,8 @@ import Nav from './components/Nav';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import ContactSection from './components/ContactSection';
+import Footer from './components/Footer';
+import Gallery from './components/Gallery';
 
 const Page = () => {
 	return (
@@ -13,9 +15,9 @@ const Page = () => {
 				<Hero />
 				<Services />
 				<ContactSection />
+				<Gallery />
+				<Footer />
 			</main>
-
-			<footer />
 		</>
 	);
 };

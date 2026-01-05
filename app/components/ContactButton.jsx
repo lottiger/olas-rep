@@ -4,7 +4,7 @@ const ContactButton = () => {
 	return (
 		<a
 			href="#contact"
-			className="inline-block px-6 py-3 font-semibold bg-purple-300 text-black rounded hover:bg-purple-200 transition"
+			className="inline-block px-6 py-2 font-medium bg-purple-300 text-black rounded-lg hover:bg-purple-200 transition"
 		>
 			Kontakta oss
 		</a>

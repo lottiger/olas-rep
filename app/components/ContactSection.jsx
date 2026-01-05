@@ -19,7 +19,9 @@ const ContactSection = () => {
 				<ContactInfo />
 				<Map />
 			</div>
-			<ContactForm />
+			<div className="bg-gray-100 ">
+				<ContactForm />
+			</div>
 		</section>
 	);
 };

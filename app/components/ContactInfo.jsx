@@ -14,28 +14,35 @@ const ContactInfo = () => {
 
 			{/* Höger (50%) */}
 			<div className="w-full space-y-2 flex flex-col gap-4 items-center md:items-start">
-				<div className="flex flex-col items-center md:flex-row md:items-center gap-2">
+				<div className="flex flex-col items-center md:flex-row md:items-center gap-4">
 					<Wrench className="w-6 h-6" />
 					<p> Verkstad: 070-220 18 53</p>
 				</div>
-				<div className="flex flex-col items-center md:flex-row md:items-center gap-2">
+				<div className="flex flex-col items-center md:flex-row md:items-center gap-4">
 					<Phone className="w-6 h-6" />
 					<p> Markservice: 070-322 97 10</p>
 				</div>
 
-				<div className="flex flex-col items-center md:flex-row md:items-center gap-2">
+				<div className="flex flex-col items-center md:flex-row md:items-center gap-4">
 					<Mail className="w-6 h-6" />
-					<p> Email: olas.rep@gmail.com</p>
+					<span>Email:</span>
+
+					<a
+						href="mailto:olas.rep@gmail.com"
+						className="-ml-3 hover:underline"
+					>
+						olas.rep@gmail.com
+					</a>
 				</div>
 
-				<div className="flex flex-col items-center md:flex-row md:items-center gap-2 text-center md:text-left">
+				<div className="flex flex-col items-center md:flex-row md:items-center gap-4 text-center md:text-left">
 					<House className="w-6 h-6" />
 					<div>
 						<p>Adress: Fyrkappen 5, 837 32 Järpen </p>
 					</div>
 				</div>
 
-				<div className="flex flex-col items-center text-center md:flex-row md:items-center gap-2 mb-10">
+				<div className="flex flex-col items-center text-center md:flex-row md:items-center gap-4 mb-10">
 					<Clock className="w-6 h-6" />
 					<p>
 						Öppet vardagar, besökstid efter överenskommelse med

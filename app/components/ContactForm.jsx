@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import PrivacyPolicyModal from './PrivacyPolicyModal';
 
 const ContactForm = () => {
 	const [formData, setFormData] = useState({
@@ -9,14 +10,18 @@ const ContactForm = () => {
 		phone: '',
 		registrationNumber: '',
 		message: '',
+		agreed: false,
 	});
 
 	const [errors, setErrors] = useState({});
 	const [submitted, setSubmitted] = useState(false);
 
 	const handleChange = (e) => {
-		const { name, value } = e.target;
-		setFormData((prev) => ({ ...prev, [name]: value }));
+		const { name, value, type, checked } = e.target;
+		setFormData((prev) => ({
+			...prev,
+			[name]: type === 'checkbox' ? checked : value,
+		}));
 		if (errors[name]) {
 			setErrors((prev) => ({ ...prev, [name]: '' }));
 		}
@@ -39,10 +44,6 @@ const ContactForm = () => {
 		if (!formData.phone.trim()) {
 			newErrors.phone = 'Telefonnummer är obligatoriskt';
 		}
-		if (!formData.registrationNumber.trim()) {
-			newErrors.registrationNumber =
-				'Registreringsnummer är obligatoriskt';
-		}
 		if (!formData.message.trim()) {
 			newErrors.message = 'Meddelande är obligatoriskt';
 		}
@@ -51,31 +52,36 @@ const ContactForm = () => {
 	};
 
 	const handleSubmit = (e) => {
-		e.preventDefault();
 		const newErrors = validateForm();
 
-		if (Object.keys(newErrors).length === 0) {
-			// Här kan du skicka formuläret
-			console.log('Formulär skickat:', formData);
-			setSubmitted(true);
-			setFormData({
-				firstName: '',
-				lastName: '',
-				email: '',
-				phone: '',
-				registrationNumber: '',
-				message: '',
-			});
-			setTimeout(() => setSubmitted(false), 5000);
-		} else {
+		if (Object.keys(newErrors).length > 0) {
+			e.preventDefault();
 			setErrors(newErrors);
+		} else {
+			// Visa framgångsmeddelande
+			setSubmitted(true);
+			// Nollställ formuläret EFTER en kort fördröjning så Formspree hinner läsa värdena
+			setTimeout(() => {
+				setFormData({
+					firstName: '',
+					lastName: '',
+					email: '',
+					phone: '',
+					registrationNumber: '',
+					message: '',
+					agreed: false,
+				});
+				setTimeout(() => setSubmitted(false), 3000);
+			}, 500);
 		}
 	};
 
 	return (
 		<form
+			action="https://formspree.io/f/mgovddqz"
+			method="POST"
 			onSubmit={handleSubmit}
-			className="max-w-2xl mx-auto p-6 bg-white rounded-lg border border-gray-200"
+			className="max-w-2xl mx-auto p-6 bg-gray-100 rounded-lg py-10"
 		>
 			{submitted && (
 				<div className="mb-6 p-4 bg-green-50 border border-green-200 text-green-700 rounded">
@@ -93,10 +99,10 @@ const ContactForm = () => {
 						name="firstName"
 						value={formData.firstName}
 						onChange={handleChange}
-						className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+						className={`w-full px-4 py-2 border bg-white rounded-lg focus:outline-none focus:ring-2 ${
 							errors.firstName
 								? 'border-red-500 focus:ring-red-500'
-								: 'border-gray-300 focus:ring-blue-500'
+								: 'border-none focus:ring-blue-500'
 						}`}
 					/>
 					{errors.firstName && (
@@ -115,10 +121,10 @@ const ContactForm = () => {
 						name="lastName"
 						value={formData.lastName}
 						onChange={handleChange}
-						className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+						className={`w-full px-4 py-2 border rounded-lg bg-white focus:outline-none focus:ring-2 ${
 							errors.lastName
 								? 'border-red-500 focus:ring-red-500'
-								: 'border-gray-300 focus:ring-blue-500'
+								: 'border-none focus:ring-blue-500'
 						}`}
 					/>
 					{errors.lastName && (
@@ -139,10 +145,10 @@ const ContactForm = () => {
 						name="email"
 						value={formData.email}
 						onChange={handleChange}
-						className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+						className={`w-full px-4 py-2 border bg-white rounded-lg focus:outline-none focus:ring-2 ${
 							errors.email
 								? 'border-red-500 focus:ring-red-500'
-								: 'border-gray-300 focus:ring-blue-500'
+								: 'border-none focus:ring-blue-500'
 						}`}
 					/>
 					{errors.email && (
@@ -161,10 +167,10 @@ const ContactForm = () => {
 						name="phone"
 						value={formData.phone}
 						onChange={handleChange}
-						className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+						className={`w-full px-4 py-2 border bg-white rounded-lg focus:outline-none focus:ring-2 ${
 							errors.phone
 								? 'border-red-500 focus:ring-red-500'
-								: 'border-gray-300 focus:ring-blue-500'
+								: 'border-none focus:ring-blue-500'
 						}`}
 					/>
 					{errors.phone && (
@@ -184,10 +190,10 @@ const ContactForm = () => {
 					name="registrationNumber"
 					value={formData.registrationNumber}
 					onChange={handleChange}
-					className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+					className={`w-full px-4 py-2 border bg-white rounded-lg focus:outline-none focus:ring-2 ${
 						errors.registrationNumber
 							? 'border-red-500 focus:ring-red-500'
-							: 'border-gray-300 focus:ring-blue-500'
+							: 'border-none focus:ring-blue-500'
 					}`}
 				/>
 				{errors.registrationNumber && (
@@ -206,10 +212,10 @@ const ContactForm = () => {
 					value={formData.message}
 					onChange={handleChange}
 					rows="5"
-					className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 resize-none ${
+					className={`w-full px-4 py-2 border bg-white rounded-lg focus:outline-none focus:ring-2 resize-none ${
 						errors.message
 							? 'border-red-500 focus:ring-red-500'
-							: 'border-gray-300 focus:ring-blue-500'
+							: 'border-none focus:ring-blue-500'
 					}`}
 				></textarea>
 				{errors.message && (
@@ -217,11 +223,26 @@ const ContactForm = () => {
 						{errors.message}
 					</span>
 				)}
+				<label className="flex gap-2 text-sm items-start">
+					<input
+						type="checkbox"
+						name="agreed"
+						value="Ja, jag godkänner behandling av personuppgifter"
+						checked={formData.agreed}
+						onChange={handleChange}
+						required
+						className="mt-1 w-5 h-5"
+					/>
+					<span className="mt-1">
+						Jag godkänner att mina uppgifter behandlas enligt{' '}
+						<PrivacyPolicyModal />
+					</span>
+				</label>
 			</div>
 
 			<button
 				type="submit"
-				className="w-full bg-blue-600 text-white font-medium py-2 rounded-lg hover:bg-blue-700 transition"
+				className="w-full inline-block py-2 font-medium bg-purple-300 text-black rounded-lg hover:bg-purple-200 transition"
 			>
 				Skicka meddelande
 			</button>

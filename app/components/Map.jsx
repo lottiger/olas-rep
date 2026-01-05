@@ -46,11 +46,11 @@ export default function Map({
 
 	if (!mounted)
 		return (
-			<div className="w-full h-96 bg-gray-100 rounded-lg border border-gray-200"></div>
+			<div className="w-full h-96 bg-gray-100 border border-gray-200"></div>
 		);
 
 	return (
-		<div className="w-full h-96 rounded-lg border border-gray-200 overflow-hidden">
+		<div className="w-full h-96 border border-gray-200 overflow-hidden z-10">
 			<MapContainer
 				center={[lat, lng]}
 				zoom={zoom}

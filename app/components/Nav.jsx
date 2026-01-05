@@ -1,4 +1,3 @@
-// Nav.jsx
 import React from 'react';
 import MobileMenu from './MobileMenu';
 
@@ -6,9 +5,9 @@ const Nav = () => {
 	return (
 		<header className="sticky top-0 z-50 w-full bg-white shadow-md px-4 md:px-8 lg:px-16">
 			<div className="relative flex justify-between items-center py-4">
-				<h1 className="font-black font-stretch-ultra-expanded">
+				<a href="#" className="font-black hover:opacity-70 transition">
 					Olas Rep
-				</h1>
+				</a>
 
 				{/* Desktop nav */}
 				<nav className="hidden md:block">
