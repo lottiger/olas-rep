@@ -91,10 +91,14 @@ const ContactForm = () => {
 
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
 				<div>
-					<label className="block text-sm font-medium mb-1">
+					<label
+						htmlFor="firstName"
+						className="block text-sm font-medium mb-1"
+					>
 						Förnamn
 					</label>
 					<input
+						id="firstName"
 						type="text"
 						name="firstName"
 						value={formData.firstName}
@@ -113,10 +117,14 @@ const ContactForm = () => {
 				</div>
 
 				<div>
-					<label className="block text-sm font-medium mb-1">
+					<label
+						htmlFor="lastName"
+						className="block text-sm font-medium mb-1"
+					>
 						Efternamn
 					</label>
 					<input
+						id="lastName"
 						type="text"
 						name="lastName"
 						value={formData.lastName}
@@ -137,10 +145,14 @@ const ContactForm = () => {
 
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
 				<div>
-					<label className="block text-sm font-medium mb-1">
+					<label
+						htmlFor="email"
+						className="block text-sm font-medium mb-1"
+					>
 						Email
 					</label>
 					<input
+						id="email"
 						type="email"
 						name="email"
 						value={formData.email}
@@ -159,10 +171,14 @@ const ContactForm = () => {
 				</div>
 
 				<div>
-					<label className="block text-sm font-medium mb-1">
+					<label
+						htmlFor="phone"
+						className="block text-sm font-medium mb-1"
+					>
 						Telefonnummer
 					</label>
 					<input
+						id="phone"
 						type="tel"
 						name="phone"
 						value={formData.phone}
@@ -182,10 +198,14 @@ const ContactForm = () => {
 			</div>
 
 			<div className="mb-4">
-				<label className="block text-sm font-medium mb-1">
+				<label
+					htmlFor="registrationNumber"
+					className="block text-sm font-medium mb-1"
+				>
 					Registreringsnummer
 				</label>
 				<input
+					id="registrationNumber"
 					type="text"
 					name="registrationNumber"
 					value={formData.registrationNumber}
@@ -204,10 +224,14 @@ const ContactForm = () => {
 			</div>
 
 			<div className="mb-4">
-				<label className="block text-sm font-medium mb-1">
+				<label
+					htmlFor="message"
+					className="block text-sm font-medium mb-1"
+				>
 					Meddelande
 				</label>
 				<textarea
+					id="message"
 					name="message"
 					value={formData.message}
 					onChange={handleChange}
@@ -223,8 +247,12 @@ const ContactForm = () => {
 						{errors.message}
 					</span>
 				)}
-				<label className="flex gap-2 text-sm items-start">
+				<label
+					htmlFor="agreed"
+					className="flex gap-2 text-sm items-start"
+				>
 					<input
+						id="agreed"
 						type="checkbox"
 						name="agreed"
 						value="Ja, jag godkänner behandling av personuppgifter"
