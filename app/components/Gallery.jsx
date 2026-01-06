@@ -12,7 +12,7 @@ const Gallery = () => {
 	return (
 		<section
 			id="contact"
-			className="space-y-12 max-w-[1480px] mx-auto px-4 py-32 md:px-8 lg:px-16"
+			className="space-y-12 max-w-[1480px] mx-auto px-4 pt-12 md:py-32 md:px-8 lg:px-16"
 		>
 			<h2 className="text-3xl md:text-6xl font-black text-center">
 				Galleri

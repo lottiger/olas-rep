@@ -27,12 +27,12 @@ const Services = () => {
 	];
 
 	return (
-		<section id="services" className="py-32 px-4 md:px-8 lg:px-16">
-			<h2 className="text-3xl md:text-6xl font-black mb-18 text-center">
+		<section id="services" className="py-12 md:py-32 px-4 md:px-8 lg:px-16">
+			<h2 className="text-3xl md:text-6xl font-black mb-8 md:mb-18 text-center">
 				Våra tjänster
 			</h2>
 
-			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+			<div className="grid grid-cols-1 text-center md:text-left md:grid-cols-2 lg:grid-cols-4 gap-6">
 				{services.map((service) => (
 					<div
 						key={service.id}
